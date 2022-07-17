@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_navbar_navbar_items",
+  "info": {
+    "displayName": "NavbarItem",
+    "icon": "list",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "to": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

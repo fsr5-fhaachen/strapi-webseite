@@ -1,19 +1,19 @@
 {
-  "name": "turborepo-basic-shared",
+  "name": "@tituskirch/justacms",
   "version": "0.0.0",
   "private": true,
   "workspaces": [
-    "apps/*",
-    "packages/*"
+    "apps/*"
   ],
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "ncu": "npx ncu && npm exec --workspaces -- npx ncu"
   },
   "devDependencies": {
-    "prettier": "^2.5.1",
+    "prettier": "^2.7.1",
     "turbo": "latest"
   },
   "engines": {
