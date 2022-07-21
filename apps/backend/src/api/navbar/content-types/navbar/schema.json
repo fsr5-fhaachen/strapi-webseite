@@ -10,12 +10,21 @@
   "options": {
     "draftAndPublish": false
   },
-  "pluginOptions": {},
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
   "attributes": {
     "items": {
       "type": "component",
       "repeatable": true,
-      "component": "navbar.navbar-item"
+      "component": "navbar.navbar-item",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }
