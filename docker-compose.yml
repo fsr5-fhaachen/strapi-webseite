@@ -1,0 +1,46 @@
+version: "3.7"
+
+volumes:
+  data:
+
+networks:
+  net:
+    ipam:
+      driver: default
+      config:
+        - subnet: "172.12.0.0/24"
+
+services:
+  database:
+    image: mariadb
+    container_name: strapi_db
+    restart: unless-stopped
+    networks:
+      net:
+        ipv4_address: 172.12.0.2
+    ports:
+      - 3306:3306
+    volumes:
+      - data:/var/lib/mysql
+    environment:
+      MARIADB_ROOT_PASSWORD: root
+      MARIADB_DATABASE: strapi
+      MARIADB_USER: strapi
+      MARIADB_PASSWORD: strapi
+
+  backend:
+    image: strapi_backend
+    build:
+      context: apps/backend
+    container_name: strapi
+    networks:
+      net:
+        ipv4_address: 172.12.0.3
+    ports:
+      - 1337:1337
+    volumes:
+      - ./apps/backend:/srv/app
+    env_file:
+      - ./apps/backend/.env
+    depends_on:
+      - database
